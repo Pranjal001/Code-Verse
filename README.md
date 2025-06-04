@@ -16,7 +16,7 @@ This repo is a personal collection of coding problems I’ve solved across vario
 
 ## 🛠️ Languages Used
 
-Mostly in **Python**, but may include **C++**, **JavaScript**, or other languages based on the problem.
+Mostly in **C++**, but may include **Python**, or other languages based on the problem.
 
 ## 📈 Goal
 
