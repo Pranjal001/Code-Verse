@@ -5,19 +5,23 @@ using namespace std;
 
 int main()
 {
-    long long n;
-    cin>>n;
-    cout<<"ok";
-    int ans=0;
-    int curr=0;
-    for(int i=0 ; i<n ; i++)
-    {
-        int a,b;
-        cin>>a>>b;
-        curr = curr - a + b;
-        ans = max(curr,ans);
-    }
-    cout<<ans;
+    // for I/O work
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+
+    // Initialisation and input
+    long long n,k,w;
+    cin>>k>>n>>w;
+    // logic : basic problem with the idea of using
+    //         sum of n natural nos
+    long long ttl_nana = 0;
+    if(w%2==1) ttl_nana = ((w+1)/2)*w;
+    else ttl_nana = (w/2)*(w+1);
+    
+    if(n >= ttl_nana*k) cout<<0;
+    else cout<<ttl_nana*k - n; 
 
     return 0;
 }
