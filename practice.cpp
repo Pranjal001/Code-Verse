@@ -12,16 +12,28 @@ int main()
     #endif
 
     // Initialisation and input
-    long long n,k,w;
-    cin>>k>>n>>w;
-    // logic : basic problem with the idea of using
-    //         sum of n natural nos
-    long long ttl_nana = 0;
-    if(w%2==1) ttl_nana = ((w+1)/2)*w;
-    else ttl_nana = (w/2)*(w+1);
+    string recipe;
+    long long nb,ns,nc;
+    long long pb,ps,pc;
+    long long r;
     
-    if(n >= ttl_nana*k) cout<<0;
-    else cout<<ttl_nana*k - n; 
+    cin>>recipe;
+    cin>>nb>>ns>>nc;
+    cin>>pb>>ps>>pc;
+    cin>>r;
+    // logic : basic math
+    
+    // count the string
+    map<char,int> freq;
+    for(auto it : recipe) freq[it]++;
+    
+    long long rb,rs,rc;
+    long long mb,ms,mc;
+    
+    rb = nb%freq['B'];
+    rs = ns%freq['S'];
+    rc = nc%freq['C'];
 
+    
     return 0;
 }
