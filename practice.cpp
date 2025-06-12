@@ -3,6 +3,10 @@
 using namespace std;
 
 
+int hcf(int a,int b)
+{
+    return b==0 ? a : hcf(b,a%b);
+}
 int main()
 {
     // for I/O work
@@ -12,27 +16,7 @@ int main()
     #endif
 
     // Initialisation and input
-    string recipe;
-    long long nb,ns,nc;
-    long long pb,ps,pc;
-    long long r;
-    
-    cin>>recipe;
-    cin>>nb>>ns>>nc;
-    cin>>pb>>ps>>pc;
-    cin>>r;
-    // logic : basic math
-    
-    // count the string
-    map<char,int> freq;
-    for(auto it : recipe) freq[it]++;
-    
-    long long rb,rs,rc;
-    long long mb,ms,mc;
-    
-    rb = nb%freq['B'];
-    rs = ns%freq['S'];
-    rc = nc%freq['C'];
+    cout<<hcf(7,8);
 
     
     return 0;
