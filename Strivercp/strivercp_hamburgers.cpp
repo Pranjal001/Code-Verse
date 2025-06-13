@@ -21,18 +21,31 @@ int main()
     cin>>nb>>ns>>nc;
     cin>>pb>>ps>>pc;
     cin>>r;
-    // logic : basic math
-    
+    // logic : binary search
     // count the string
     map<char,int> freq;
-    for(auto it : recipe) freq[it]++;
+    for(int it=0; it<recipe.size(); it++){  freq[recipe[it]]++;}
     
-    long long rb,rs,rc;
-    long long mb,ms,mc;
-    
-    rb = nb%freq['B'];
-    rs = ns%freq['S'];
-    rc = nc%freq['C'];
+    long long low=0,high=r+500;
+
+    while(low<=high)
+    {
+        long long mid = low+((high-low)/2);
+        
+        long long rb = max(freq['B']*mid - nb , 0ll);
+        long long rs = max(freq['S']*mid - ns , 0ll);
+        long long rc = max(freq['C']*mid - nc , 0ll); 
+
+        long long extra_price = rb*pb+rs*ps+rc*pc;
+
+        if(extra_price <= r){
+            low  = mid+1;
+        }
+        else high = mid-1;
+
+
+    }
+    cout<<high;
 
     
     return 0;
