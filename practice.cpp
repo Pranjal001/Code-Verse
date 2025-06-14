@@ -1,12 +1,16 @@
 #include<bits/stdc++.h>
-
+typedef long long ll;
 using namespace std;
 
-
-int hcf(int a,int b)
+bool tsum(ll k)
 {
-    return b==0 ? a : hcf(b,a%b);
+    ll sum=0;
+    if((k+1) & 1){
+        sum = ((k)/2) * (k+1);
+    }
+    else sum = ((k)/2) * (k+1);
 }
+
 int main()
 {
     // for I/O work
@@ -16,8 +20,26 @@ int main()
     #endif
 
     // Initialisation and input
-    cout<<hcf(7,8);
-
+    ll n,k;
+    cin>>n>>k;
     
+    n--;
+    ll ksum = tsum(k-1);
+
+    if(ksum < n){ cout<<-1; return 0;}
+
+    ll low=0,high=k-1;
+
+    while(low<=high)
+    {
+        ll mid = low + (high-low)/2;
+        
+        if(ksum - tsum(mid) >= n){
+            low = mid+1;
+        }
+        else high = mid-1;
+    }
+    
+    cout<<k-1-high;
     return 0;
 }
